@@ -1,0 +1,15 @@
+{
+  "name": "kyte-attribution",
+  "version": "1.0.0",
+  "description": "",
+  "main": "kyte-attribution.js",
+  "scripts": {
+    "serve": "ngrok http \"file://${PWD}\"",
+    "merge-and-minify": "npx uglifyjs client.min.js kyte-attribution.js -c -o kyte-attribution.min.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "uglify-js": "^3.17.4"
+  }
+}
