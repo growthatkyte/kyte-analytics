@@ -5,7 +5,7 @@
   "main": "kyte-attribution.js",
   "scripts": {
     "serve": "ngrok http \"file://${PWD}\"",
-    "merge-and-minify": "npx uglifyjs client.min.js kyte-attribution.js -c -o kyte-attribution.min.js"
+    "merge-and-minify": "npx uglifyjs kyte-attribution.js -c -o kyte-attribution.min.js"
   },
   "author": "",
   "license": "ISC",

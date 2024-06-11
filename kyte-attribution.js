@@ -50,14 +50,12 @@ function kyteAttUpdateDate() {
     document.head.appendChild(script);
     window.addEventListener('load', function(event){
         try{
+            // Resgata informações armazenadas
             var kyteAtt = JSON.parse(localStorage.getItem('kyteAtt') || '{}');
-            console.log(Number(localStorage.getItem('kyteAttExp')))
             if(Number(localStorage.getItem('kyteAttExp')) < new Date().getTime()){
                 localStorage.removeItem('kyteAttSent');
                 kyteAtt = {};
             }
-            // Controle de fingerprint
-            if(kyteAtt && !kyteAtt.kid) kyteAtt.kid = (new ClientJS()).getFingerprint();
 
             // Extrair variáveis de interessa da URL do site
             var urlParams = location.search.substring(1).split('&');
@@ -65,6 +63,7 @@ function kyteAttUpdateDate() {
                 var p = v.split('=');
                 if (ATT_PARAMS.indexOf(p[0]) !== -1 && !!p[1] && p[1] !== 'undefined') kyteAtt[p[0]] = p[1];
             });
+
             // Armazenamento
             localStorage.setItem('kyteAtt', JSON.stringify(kyteAtt));
             localStorage.setItem('kyteAttExp', new Date().getTime() + 2592000000); // 30 dias em milisegundos
